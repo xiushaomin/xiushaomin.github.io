@@ -92,7 +92,7 @@
 <meta property="og:description" content="DTCoreText是一个解析HTML为NSAttributedString并且最终用CoreText绘制出来的库。它主要分为两部分，一部分是解析HTML和CSS，另一部分则是CoreText绘制。">
 <meta property="og:image" content="http://yoursite.com/2018/06/01/DTCoreText源码解析/coreText1.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/01/DTCoreText源码解析/coreText2.png">
-<meta property="og:updated_time" content="2018-06-01T07:41:57.443Z">
+<meta property="og:updated_time" content="2018-06-01T07:52:40.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DTCoreText学习记录">
 <meta name="twitter:description" content="DTCoreText是一个解析HTML为NSAttributedString并且最终用CoreText绘制出来的库。它主要分为两部分，一部分是解析HTML和CSS，另一部分则是CoreText绘制。">
@@ -375,6 +375,7 @@
 <p><img src="/2018/06/01/DTCoreText源码解析/coreText2.png" alt="图片"> </p>
 <p>NSAttributeString 可以通过 CoreText 提供的接口<code>CTFramesetterCreateWithAttributedString</code>生成 <code>CTFrameSetter</code> 然后<code>CTFrameSetter</code> 通过 <code>CTFramesetterCreateFrame</code> 接口，它会通过持有的CTTpyeSetter和参数 CGPath 生成 CTFrame。生成CTFrame 的同时，也生成了CTLine和CTRun。然后通过调用 渲染接口完成渲染。</p>
 <p>DTCoreText封装了一些控件，他们的核心则是 DTAttributedTextContentView，文字由DTAttributedTextContentView渲染，然后各种占位 Attachment 则需要delegate传给DTAttributedTextContentView。然后DTCoreText模仿CoreText里的CTFramesetter / CTFrame / CTLine / CTRun模式，在他们基础上封装了CTRunDTCoreTextLayouter / DTCoreTextLayoutFrame / DTCoreTextLayoutLine / DTCoreTextGlyphRun这几个类。</p>
+<p>其中最为核心的就是 DTCoreTextLayoutFrame 生成行和渲染的实现，相当于把CoreText原生的CTFrameGetlines和CTFrameDraw自己实现了一遍，以达到各种特殊需求的实现。</p>
 
       
     </div>
