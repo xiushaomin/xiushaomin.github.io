@@ -287,7 +287,7 @@
               
                 
                 <a class="post-title-link" href="/2018/12/15/理解-RxSwift-之-Observable-与-Observer/" itemprop="url">
-                  理解 RxSwift 之 Observable 与 Observer
+                  理解 RxSwift 那些奇怪的东西
                 </a>
               
             
@@ -340,15 +340,16 @@
 
       
         
-          
-            <p>前段时间入坑OC和Swift混编之后，也稍微对Rx做了一些了解。（其实是小组被迫分享…</p>
+          <p>入坑OC和Swift混编之后，也稍微对Rx做了一些了解。</p>
 <p>在学习的时候发现一些概念难以理解，所以打算写篇博客记录一下。</p>
 <p>不用多说，Rx 的核心就是 Observable，所以在看文档中肯定不断的遇到，Observable 和 Observer 两个单词。这两个单词也很好的表达出了意思，Observable（可被观察的）/ Observer(观察者)</p>
-<p>举个🌰：<br>比如女朋友大喊一声饿了，你就得去买吃的。这样大概就是一个不太准确的观察者模式，女朋友就是被观察者，而你就是观察者。只要被观察的对象发出一个事件『饿了』，你（观察者）就得做出相应的响应『搞吃的去』。但是男女朋友的关系是怎么建立起来的呢？那就需要 subscribe（订阅）了。</p>
-<p>所以梳理一下流程：观察者 -&gt; 订阅 -&gt; 可被观察者 -&gt; 可被观察者发出事件 -&gt; 观察者做出相应的响应。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">/// 创建一个观察者</div><div class="line">let observer: AnyObserver&lt;String&gt; = AnyObserver &#123; (event) in</div><div class="line">    </div><div class="line">    /// 对可被观察序列发出的事件作出响应</div><div class="line">    switch event &#123;</div><div class="line">    case .next(let data):</div><div class="line">        print(data)</div><div class="line">    case .error(let error):</div><div class="line">        print(error)</div><div class="line">    case .completed:</div><div class="line">        print(&quot;completed&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/// 创建一个可被观察者</div><div class="line">let observable = Observable.of(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</div><div class="line"></div><div class="line">/// 建立订阅关系</div><div class="line">observable.subscribe(observer)</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/12/15/理解-RxSwift-之-Observable-与-Observer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -679,7 +680,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/12/集成JSPatch-自己服务器/" itemprop="url">
-                  集成JSPatch(自己服务器)
+                  JSPatch(自己服务器下发脚本)
                 </a>
               
             
